@@ -111,3 +111,14 @@ def apply_move(state: CubeState, move: str) -> CubeState:
         state = base_moves[face](state)
 
     return state
+
+MOVES = (
+    "R", "R'", "R2",
+    "U", "U'", "U2",
+    "F", "F'", "F2",
+)
+
+
+def neighbors(state: CubeState):
+    for move in MOVES:
+        yield move, apply_move(state, move)
